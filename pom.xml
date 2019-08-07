@@ -17,40 +17,6 @@
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
   </properties>
 
-  <repositories>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>joined-maven-releases</name>
-      <url>http://artifactory.danskenet.net/artifactory/joined-maven-releases</url>
-    </repository>
-    <repository>
-      <snapshots/>
-      <id>snapshots</id>
-      <name>joined-maven-snapshots</name>
-      <url>http://artifactory.danskenet.net/artifactory/joined-maven-snapshots</url>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>joined-maven-releases</name>
-      <url>http://artifactory.danskenet.net/artifactory/joined-maven-releases</url>
-    </pluginRepository>
-    <pluginRepository>
-      <snapshots/>
-      <id>snapshots</id>
-      <name>joined-maven-snapshots</name>
-      <url>http://artifactory.danskenet.net/artifactory/joined-maven-snapshots</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -104,17 +70,30 @@
         <version>2.22.1</version>
       </plugin>
       <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.1</version>
         <configuration>
           <archive>
             <manifest>
               <mainClass>
-                dk.danskebank.neva.exchange.ApplicationRunner
+                org.aikidistas.currencyexchange.ApplicationRunner
               </mainClass>
             </manifest>
           </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <appendAssemblyId>false</appendAssemblyId>
         </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id> <!-- this is used for inheritance merges -->
+            <phase>package</phase> <!-- bind to the packaging phase -->
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-install-plugin</artifactId>
@@ -163,7 +142,7 @@
                     <limit>
                       <counter>COMPLEXITY</counter>
                       <value>COVEREDRATIO</value>
-                      <minimum>0.70</minimum>
+                      <minimum>0.90</minimum>
                     </limit>
                   </limits>
                 </rule>
