@@ -41,15 +41,15 @@ For instance: `EUR/DKK 7,4394`, would denote that 1 EUR can be exchange with `7,
 Using the exchange rates below, denoting the amount Danish kroner (DKK) required to purchase 100 in the mentioned currency,  
 make a command line tool that is able to take a ISO currency pair and an  amount, and write the exchanged amount to the console
 
-| Currency              | ISO   | Amount |
-| ---                   | ---   | ---: |
-| Euro                  | EUR	| 743,94 |
-| Amerikanske dollar    | USD	| 663,11 |
-| Britiske pund         | GBP	| 852,85 |
-| Svenske kroner        | SEK	| 76,10 |
-| Norske kroner         | NOK	| 78,40 |
-| Schweiziske franc     | CHF	| 683,58 |
-| Japanske yen          | JPY	| 5,9740 |
+| Currency        | ISO   | Amount |
+| ---             | ---   | ---: |
+| Euro            | EUR	| 743,94 |
+| American dollar | USD	| 663,11 |
+| British pund    | GBP	| 852,85 |
+| Swedish krona   | SEK	| 76,10 |
+| Norwegian krone | NOK	| 78,40 |
+| Swiss franc     | CHF	| 683,58 |
+| Japanese yen    | JPY	| 5,9740 |
 
 
 It is expected that a currency pair can contain any combination of the mentioned currencies (including DKK), e.g. EUR/USD. 
